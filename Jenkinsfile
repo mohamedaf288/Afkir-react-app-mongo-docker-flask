@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = 'dockerhub-mohamedaf288'
-        BACKEND_IMAGE = 'react-mongo-flask-main-backend:latest'
-        FRONTEND_IMAGE = 'react-mongo-flask-main-frontend:latest'
+        BACKEND_IMAGE = 'mohamedaf288/react-mongo-flask-main-backend:latest'
+        FRONTEND_IMAGE = 'mohamedaf288/react-mongo-flask-main-frontend:latest'
     }
 
     stages {
@@ -40,7 +40,7 @@ pipeline {
 
         stage('Finish') {
             steps {
-                echo " All builds and deployments completed successfully!"
+                echo "🎉 All builds and deployments completed successfully!"
             }
         }
     }
