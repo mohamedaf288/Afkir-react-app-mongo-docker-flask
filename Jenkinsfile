@@ -40,7 +40,7 @@ pipeline {
 
         stage('Finish') {
             steps {
-                echo "🎉 All builds and deployments completed successfully!"
+                echo " All builds and deployments completed successfully!"
             }
         }
     }
