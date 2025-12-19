@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_CREDENTIALS = 'dockerhub-naanaiysung'
-        BACKEND_IMAGE = 'naanaiysung/flask-backend:latest'
-        FRONTEND_IMAGE = 'naanaiysung/react-frontend:latest'
+        DOCKERHUB_CREDENTIALS = 'dockerhub-mohamedaf288'
+        BACKEND_IMAGE = 'react-mongo-flask-main-backend:latest'
+        FRONTEND_IMAGE = 'react-mongo-flask-main-frontend:latest'
     }
 
     stages {
