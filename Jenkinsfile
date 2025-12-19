@@ -10,18 +10,21 @@ pipeline {
     stages {
         stage('Build Backend') {
             steps {
+                echo "🚀 Building backend Docker image..."
                 sh 'docker build -t $BACKEND_IMAGE ./backend'
             }
         }
 
         stage('Build Frontend') {
             steps {
+                echo "🚀 Building frontend Docker image..."
                 sh 'docker build -t $FRONTEND_IMAGE ./frontend'
             }
         }
 
         stage('Push Images') {
             steps {
+                echo "📤 Pushing Docker images to Docker Hub..."
                 withCredentials([
                     usernamePassword(
                         credentialsId: DOCKERHUB_CREDENTIALS,
@@ -33,6 +36,7 @@ pipeline {
                         echo "$PASS" | docker login -u "$USER" --password-stdin
                         docker push $BACKEND_IMAGE
                         docker push $FRONTEND_IMAGE
+                        docker logout
                     '''
                 }
             }
@@ -47,8 +51,11 @@ pipeline {
 
     post {
         always {
-            echo "Containers currently running on this machine:"
-            sh 'docker ps'
+            echo "🔎 Containers currently running on this machine:"
+            sh 'docker ps || true'
+        }
+        failure {
+            echo "❌ Pipeline failed!"
         }
     }
 }
