@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        DOCKER_API_VERSION = '1.43'
+        DOCKER_API_VERSION = '1.44'
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-mohamedaf288')
         DOCKERHUB_USERNAME = 'mohamedaf288'
         BACKEND_IMAGE = "${DOCKERHUB_USERNAME}/react-mongo-flask-main-backend"
